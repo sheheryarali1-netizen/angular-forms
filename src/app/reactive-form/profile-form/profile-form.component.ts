@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {
+  FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -23,7 +24,12 @@ export class ProfileFormComponent {
       state: [''],
       country: [''],
     }),
+    aliases: this.formBuilder.array([this.formBuilder.control('')]),
   });
+
+  public get aliases() {
+    return this.formGroup.get('aliases') as FormArray;
+  }
 
   public restoreDefault() {
     this.formGroup.patchValue({
@@ -34,5 +40,9 @@ export class ProfileFormComponent {
 
   public onSubmit() {
     console.log('Form submitted:', this.formGroup.value);
+  }
+
+  public addAlias() {
+    this.aliases.push(this.formBuilder.control(''));
   }
 }

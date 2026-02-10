@@ -78,6 +78,28 @@
       </div>
     </div>
 
+    <h4>Aliases</h4>
+
+    <p>
+      <button class="btn" (click)="addAlias()">+ Add Alias</button>
+    </p>
+
+    <div formArrayName="aliases">
+      <div
+        *ngFor="let alias of aliases.controls; let i = index"
+        class="form-group"
+      >
+        <label for="name">Alias</label>
+
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          [formControlName]="i"
+        />
+      </div>
+    </div>
+
     <div class="button-container">
       <button
         type="submit"
