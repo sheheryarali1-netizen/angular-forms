@@ -1,6 +1,6 @@
 export class Hero {
   constructor(
-    public id: string,
+    public id: number,
     public name: string,
     public power: string,
     public alterEgo?: string,
