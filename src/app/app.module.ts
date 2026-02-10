@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HeroFormComponent } from './hero-form/hero-form.component';
-import { FormsModule } from '@angular/forms';
+import { TemplateFormModule } from './template-form/template-form.module';
 
 @NgModule({
-  declarations: [AppComponent, HeroFormComponent],
-  imports: [BrowserModule, FormsModule],
+  declarations: [AppComponent],
+  imports: [BrowserModule, TemplateFormModule],
   providers: [],
   bootstrap: [AppComponent],
 })
