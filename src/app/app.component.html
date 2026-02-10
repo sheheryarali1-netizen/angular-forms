@@ -1,1 +1,27 @@
-<app-hero-form></app-hero-form>
+<div class="container">
+  <h1>Angular Forms</h1>
+
+  <div class="button-container">
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="toggleMode('template')"
+    >
+      Template
+    </button>
+
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="toggleMode('reactive')"
+    >
+      Reactive
+    </button>
+  </div>
+
+  <div [ngSwitch]="mode">
+    <app-hero-form *ngSwitchCase="'template'"></app-hero-form>
+
+    <app-profile-form *ngSwitchCase="'reactive'"></app-profile-form>
+  </div>
+</div>
