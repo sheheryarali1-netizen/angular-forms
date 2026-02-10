@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-profile-form',
@@ -7,14 +12,16 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./profile-form.component.css'],
 })
 export class ProfileFormComponent {
-  public formGroup = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    address: new FormGroup({
-      street: new FormControl(''),
-      zipCode: new FormControl(''),
-      state: new FormControl(''),
-      country: new FormControl(''),
+  constructor(private formBuilder: FormBuilder) {}
+
+  public formGroup = this.formBuilder.group({
+    firstName: ['', Validators.required],
+    lastName: [''],
+    address: this.formBuilder.group({
+      street: [''],
+      zipCode: [''],
+      state: [''],
+      country: [''],
     }),
   });
 
@@ -23,5 +30,9 @@ export class ProfileFormComponent {
       firstName: 'John',
       lastName: 'Smith',
     });
+  }
+
+  public onSubmit() {
+    console.log('Form submitted:', this.formGroup.value);
   }
 }
