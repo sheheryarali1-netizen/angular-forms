@@ -18,7 +18,11 @@ export class HeroFormComponent {
 
   public submitted = false;
 
-  onSubmit() {
+  public onSubmit() {
     this.submitted = true;
+  }
+
+  public reset() {
+    this.model = new Hero(42, '', '');
   }
 }
