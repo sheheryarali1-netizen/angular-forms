@@ -1,7 +1,11 @@
 <div class="container">
   <h1>Hero Form</h1>
 
-  <form>
+  <p>
+    {{ model | json }}
+  </p>
+
+  <form #heroForm="ngForm">
     <div class="form-group">
       <label for="name">Name</label>
 
