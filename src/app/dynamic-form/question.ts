@@ -1,11 +1,12 @@
 type QuestionControlType = 'text' | 'number' | 'select';
 
-abstract class Question<T> {
+export abstract class Question<T> {
   public key: string;
   public value: T;
   public label?: string;
   public order?: number;
   public required?: boolean;
+  public options?: string[];
 
   public abstract controlType: QuestionControlType;
 
@@ -15,12 +16,14 @@ abstract class Question<T> {
     label?: string;
     order?: number;
     required?: boolean;
+    options?: string[];
   }) {
     this.key = options.key;
     this.value = options.value;
     this.label = options.label;
     this.order = options.order;
     this.required = options.required;
+    this.options = options.options;
   }
 }
 

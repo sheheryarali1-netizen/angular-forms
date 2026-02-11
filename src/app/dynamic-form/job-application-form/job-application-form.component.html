@@ -2,4 +2,8 @@
   <h2>Dynamic Form</h2>
 
   <h3>Job Application Form</h3>
+
+  <ng-container *ngFor="let question of questions$ | async">
+    <app-question [question]="question"></app-question>
+  </ng-container>
 </div>
