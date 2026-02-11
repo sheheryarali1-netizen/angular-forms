@@ -17,11 +17,25 @@
     >
       Reactive
     </button>
+
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="toggleMode('dynamic')"
+    >
+      Dynamic
+    </button>
   </div>
 
   <div [ngSwitch]="mode">
     <app-hero-form *ngSwitchCase="'template'"></app-hero-form>
 
     <app-profile-form *ngSwitchCase="'reactive'"></app-profile-form>
+
+    <app-job-application-form
+      *ngSwitchCase="'dynamic'"
+    ></app-job-application-form>
+
+    <h4 *ngSwitchDefault>Invalid form mode!</h4>
   </div>
 </div>

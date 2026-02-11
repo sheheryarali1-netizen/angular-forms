@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-type Mode = 'template' | 'reactive';
+type Mode = 'template' | 'reactive' | 'dynamic';
 
 @Component({
   selector: 'app-root',
