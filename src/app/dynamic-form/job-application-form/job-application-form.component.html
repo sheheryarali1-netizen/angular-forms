@@ -6,4 +6,6 @@
   <ng-container *ngFor="let question of questions$ | async">
     <app-question [question]="question"></app-question>
   </ng-container>
+
+  <button type="submit" class="btn btn-success">Submit</button>
 </div>

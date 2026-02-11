@@ -1,1 +1,39 @@
-<p>{{ question.key }}</p>
+<div class="form-group">
+  <label *ngIf="question.label" [for]="question.key">{{
+    question.label
+  }}</label>
+
+  <ng-container [ngSwitch]="question.controlType">
+    <ng-container *ngSwitchCase="'number'">
+      <input
+        type="number"
+        [id]="question.key"
+        class="form-control"
+        [required]="question.required"
+      />
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'select'">
+      <select
+        class="form-control"
+        [id]="question.key"
+        [required]="question.required"
+      >
+        <option *ngFor="let option of question.options" [value]="option">
+          {{ option }}
+        </option>
+      </select>
+    </ng-container>
+
+    <ng-container *ngSwitchDefault>
+      <input
+        type="text"
+        [id]="question.key"
+        class="form-control"
+        [required]="question.required"
+      />
+    </ng-container>
+  </ng-container>
+
+  <div class="alert alert-danger">Required</div>
+</div>
