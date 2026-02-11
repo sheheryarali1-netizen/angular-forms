@@ -21,7 +21,7 @@ export class QuestionService {
 
       new SelectQuestion({
         key: 'department',
-        value: '',
+        value: 'Engineering',
         label: 'Department',
         order: 3,
         required: true,

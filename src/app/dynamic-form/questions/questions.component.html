@@ -1,0 +1,9 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <ng-container *ngFor="let question of questions">
+    <app-question [question]="question" [formGroup]="formGroup"></app-question>
+  </ng-container>
+
+  <button [disabled]="!formGroup.valid" type="submit" class="btn btn-success">
+    Submit
+  </button>
+</form>

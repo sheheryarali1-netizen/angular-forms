@@ -1,4 +1,4 @@
-<div class="form-group">
+<div class="form-group" [formGroup]="formGroup">
   <label *ngIf="question.label" [for]="question.key">{{
     question.label
   }}</label>
@@ -9,7 +9,8 @@
         type="number"
         [id]="question.key"
         class="form-control"
-        [required]="question.required"
+        [required]="!!question.required"
+        [formControlName]="question.key"
       />
     </ng-container>
 
@@ -17,7 +18,8 @@
       <select
         class="form-control"
         [id]="question.key"
-        [required]="question.required"
+        [required]="!!question.required"
+        [formControlName]="question.key"
       >
         <option *ngFor="let option of question.options" [value]="option">
           {{ option }}
@@ -30,10 +32,11 @@
         type="text"
         [id]="question.key"
         class="form-control"
-        [required]="question.required"
+        [required]="!!question.required"
+        [formControlName]="question.key"
       />
     </ng-container>
   </ng-container>
 
-  <div class="alert alert-danger">Required</div>
+  <div *ngIf="!isValid()" class="alert alert-danger">Required</div>
 </div>

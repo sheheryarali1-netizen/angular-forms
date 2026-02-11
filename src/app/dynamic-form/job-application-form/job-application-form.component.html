@@ -3,9 +3,5 @@
 
   <h3>Job Application Form</h3>
 
-  <ng-container *ngFor="let question of questions$ | async">
-    <app-question [question]="question"></app-question>
-  </ng-container>
-
-  <button type="submit" class="btn btn-success">Submit</button>
+  <app-questions [questions]="questions$ | async"></app-questions>
 </div>
