@@ -8,7 +8,7 @@ type Mode = 'template' | 'reactive' | 'dynamic';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  public mode: Mode = 'reactive';
+  public mode: Mode = 'dynamic';
 
   public toggleMode(mode: Mode) {
     this.mode = mode;
